@@ -1,0 +1,33 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: url('https://i.pinimg.com/564x/78/46/59/78465959c9d1d8fc5d54aa4ab72fbf9c.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .grid-item {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .grid-item:hover {
+    transform: scale(1.1); /* You can adjust the scale factor as needed */
+  }
+</style>
+
+<div class="flex ml-4">
+  <%= link_to "Back", machines_path ,class: "bg-zinc-700 hover:bg-blue-600 rounded-lg text-white font-semibold px-4 py-2 mr-2"%>
+</div>
+<div class="flex justify-center items-center bg-[url('/home/hp/Téléchargements/fond.png')] bg-center bg-no-repeat bg-cover min-h-screen">
+  <div class="text-center p-4 md:p-8">
+    <h1 class="text-4xl md:text-4xl font-bold text-white mb-2"><%= @machine.name %></h1>
+    <p class="w-fit m-auto justify-center items-center "><%= image_tag(@machine.image, style:"max-width:300px;height:auto;") if @machine.image.attached? %></p><br>
+    <p class="mb-4 text-white"><%= @machine.description %></p>
+
+    <div class="flex justify-center items-center flex-col md:flex-row gap-2">
+      <%= button_to "Edit", edit_machine_path(@machine), method: :get, class: "bg-cyan-500 hover:bg-blue-600 rounded-lg text-white font-semibold px-4 py-2" %>
+      <%= button_to "Delete", @machine, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "bg-cyan-700 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg" %>
+    </div>
+  </div>
+</div>
+

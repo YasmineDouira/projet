@@ -1,0 +1,52 @@
+<%= form_with model: @machine, multipart: true do |form| %>
+  <% if form.object.errors.any? %>
+    <div>
+      <% form.object.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="mb-4 mt-5 ml-5 mr-5">
+    <div>
+      <%= form.label :name, class: "text-gray-300" %>
+    </div>
+    <div>
+      <%= form.text_field :name, class: "form-input w-full p-2 rounded-md bg-gray-800 text-gray-300" %>
+    </div>
+  </div>
+
+  <div class="mb-4 mt-5 ml-5 mr-5">
+    <div>
+      <%= form.label :serial_number, class: "text-gray-300" %>
+    </div>
+    <div>
+      <%= form.text_field :serial_number, class: "form-input w-full  p-2 rounded-md bg-gray-800 text-gray-300" %>
+    </div>
+  </div>
+
+  <div class="mt-5 ml-5 mr-5">
+    <div>
+      <%= form.label :description, class: "text-gray-300" %>
+    </div>
+    <div>
+      <%= form.text_area :description, class: "form-input w-full p-2 rounded-md bg-gray-800 text-gray-300" %>
+    </div>
+  </div>
+
+  <div class="mb-10 ml-5 mr-5">
+    <div>
+      <%= form.label :image, class: "text-gray-300" %>
+    </div>
+    <div>
+      <%= form.file_field :image, class: "form-input rounded-lg gray-input text-gray-300" %>
+    </div>
+  </div>
+
+  <div class="mb-4 flex justify-between ml-48">
+    <%= link_to "Back", :back, class: "bg-cyan-700 hover:bg-red-600 rounded-lg text-white font-semibold px-4 py-2 mr-2" %>
+    <%= form.button class: "bg-cyan-500 hover:bg-blue-600 text-white font-bold py-2 px-3 rounded-lg" %>
+  </div>
+
+<% end %>
+

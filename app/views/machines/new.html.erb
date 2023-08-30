@@ -1,0 +1,33 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: url('https://i.pinimg.com/564x/78/46/59/78465959c9d1d8fc5d54aa4ab72fbf9c.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .grid-item {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .grid-item:hover {
+    transform: scale(1.1); /* You can adjust the scale factor as needed */
+  }
+</style>
+
+<div class="flex justify-center items-center min-h-screen">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-7 mt-0 mb-20 w-full lg:w-2/3 xl:w-1/2">
+    <div class="col-span-1">
+      <p class="text-3xl lg:text-5xl font-bold text-white">Create New Machine</p>
+      <hr class="mt-3 lg:mt-6 w-16 lg:w-20 border-t-2 lg:border-t-4 border-purple-300">
+      <p class="text-base lg:text-xl mt-3 lg:mt-6 font-bold text-white">Do you want to create a new machine and track its data?</p>
+      <p class="text-base lg:text-xl mt-3 lg:mt-6 font-bold text-white">Let's create it!</p>
+    </div>
+    <div class="col-span-1 flex flex-col justify-center bg-gray-600 bg-opacity-50 text-white rounded-lg overflow-hidden">
+      <h1 class="text-2xl lg:text-4xl font-bold mb-2 lg:mb-4">New Machine</h1>
+      <%= render partial: "form", locals: {machine: @machine} %>
+    </div>
+  </div>
+</div>
+
+

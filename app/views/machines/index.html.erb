@@ -1,0 +1,46 @@
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: url('https://i.pinimg.com/564x/78/46/59/78465959c9d1d8fc5d54aa4ab72fbf9c.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .grid-item {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .grid-item:hover {
+    transform: scale(1.1); /* You can adjust the scale factor as needed */
+  }
+</style>
+
+<div class="mt-7 mb-10 mx-4 md:mx-10 ">
+  <%= link_to "New machine", new_machine_path, class: "bg-zinc-700 hover:bg-blue-600 rounded-lg text-white font-semibold px-4 py-2" %>
+</div>
+
+<div class="mx-4 md:mx-20">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-4 md:mt-7 ">
+    <% @machines.each do |machine| %>
+      <div class="bg-gray-100 bg-opacity-30 rounded-lg flex flex-col items-center justify-center p-7 grid-item">
+        <p class="w-fit m-auto"><%= image_tag(machine.image, style: "max-width: 100%; height: auto;") if machine.image.attached? %></p><br>
+        <h2 class="bg-zinc-600 hover:bg-blue-600 rounded-lg text-white px-4 py-2 font-semibold text-center"><%= link_to machine.name, machine %></h2>
+        <%# <%= machine.description %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  const gridItems = document.querySelectorAll('.grid-item');
+  gridItems.forEach(item => {
+    item.addEventListener('mouseover', () => {
+      item.style.transform = 'scale(1.1)';
+    });
+
+    item.addEventListener('mouseout', () => {
+      item.style.transform = 'scale(1)';
+    });
+  });
+</script>
+
